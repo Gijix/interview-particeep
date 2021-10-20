@@ -13,12 +13,12 @@ import Movie from "./Movie";
 import styles from "./MovieList.module.css";
 
 export default function MovieList() {
-  const { categories, loading, visibleList, list } = useSelector(selectMovies);
+  const { categories, loading, visibleList } = useSelector(selectMovies);
   const [maxSize, setMaxSize] = useState(12);
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
   const changePage = (num) => {
-    let pageMax = Math.ceil(list.length / maxSize);
+    let pageMax = Math.ceil(visibleList.length / maxSize);
     if (page + num > 0 && page + num <= pageMax) setPage((prev) => prev + num);
   };
   const updateMaxSize = (e) => {
