@@ -1,0 +1,134 @@
+.movieListWrapper {
+  display: flex;
+  flex-direction: column;
+}
+.optionWrapper {
+  width: 100vw;
+  display: flex;
+  align-items: flex-end;
+}
+.optionWrapper > button {
+  margin: 20px;
+  margin-bottom: 0px;
+}
+.pagination > input {
+  border-radius: 5px;
+  border: solid 1px rgb(161, 160, 160);
+  margin-left: 20px;
+  caret-color: transparent;
+}
+.pagination > input:focus {
+  outline: none;
+}
+.multiSelect {
+  margin: 20px;
+  margin-bottom: 0px;
+  min-width: 200px;
+  width: fit-content;
+}
+.pagination {
+  display: flex;
+  margin-left: 20px;
+  margin-top: 20px;
+  height: 35px;
+}
+.pagination > i {
+  height: fit-content;
+  color: rgb(5, 152, 197);
+  font-size: 30px;
+  font-weight: 900;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+.pagination > p {
+  position: relative;
+  bottom: 5px;
+}
+.movie {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: space-around;
+  border-radius: 8px;
+  width: 250px;
+  height: 200px;
+  background-color: white;
+  box-shadow: 8px 8px 10px 0px rgb(209, 207, 207);
+  margin: 25px;
+  transition: 200ms;
+  text-align: center;
+}
+.movie:hover {
+  transform: scale(1.1);
+  transition: 200ms;
+}
+.movie > h2 {
+  font-size: 20px;
+}
+.movie :nth-child(1n) {
+  margin-left: 20px;
+}
+.movieWrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+.remove {
+  border-radius: 5px;
+  background-color: rgb(5, 152, 197);
+  color: white;
+  border: none;
+  width: fit-content;
+  height: 38px;
+  font-weight: 600;
+  transition: 200ms;
+}
+.remove:hover {
+  background-color: #05427a;
+  transition: 200ms;
+  cursor: pointer;
+}
+.ratio {
+  display: flex;
+
+  justify-content: center;
+  margin-left: 0px;
+  width: fit-content;
+}
+.ratio > img {
+  background-size: 100%;
+  width: 20px;
+  height: 20px;
+  margin: 0px;
+}
+.ratio > img:hover {
+  filter: invert(48%) sepia(13%) saturate(3207%) hue-rotate(130deg)
+    brightness(95%) contrast(80%);
+  cursor: pointer;
+}
+.ratio > p {
+  height: 20px;
+  margin: 0;
+}
+.jauge {
+  display: flex;
+  justify-content: center;
+  width: 138px;
+  height: 1px;
+}
+.jauge > div {
+  height: 100%;
+  background-color: rgb(129, 124, 124);
+  height: 2px;
+}
+.clicked {
+  filter: invert(13%) sepia(99%) saturate(2318%) hue-rotate(195deg)
+    brightness(93%) contrast(96%);
+}
