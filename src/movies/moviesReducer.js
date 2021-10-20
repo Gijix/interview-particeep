@@ -46,6 +46,6 @@ export const movieReducer = createSlice({
   },
 });
 
-export const { remove, filter,changeSize } = movieReducer.actions;
+export const { remove, filter } = movieReducer.actions;
 export const selectMovies = (state) => state.movieList.value;
 export default movieReducer.reducer;
