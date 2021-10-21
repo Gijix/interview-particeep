@@ -13,38 +13,42 @@ import Movie from "./Movie";
 import styles from "./MovieList.module.css";
 
 export default function MovieList() {
-  const { categories, loading, visibleList } = useSelector(selectMovies);
+  const { categories, visibleList } = useSelector(selectMovies);
   const [maxSize, setMaxSize] = useState(12);
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
+
   const changePage = (num) => {
     let pageMax = Math.ceil(visibleList.length / maxSize);
     if (page + num > 0 && page + num <= pageMax) setPage((prev) => prev + num);
   };
-  const updateMaxSize = (e) => {
-    let num = Number(e.target.value);
-    if (visibleList.slice((page - 1) * num, num * page).length === 0) {
-      e.preventDefault()
-      e.target.value = maxSize
-    } else setMaxSize(num);
+
+  const updateMaxSize = (val) => {
+    let num = val + maxSize
+    if(num > 12 || num < 4) return
+    if (visibleList.slice((page - 1) * num, num * page).length !== 0) {
+      return setMaxSize(num);
+    }
   };
+
   useEffect(() => {
     dispatch(setInitialMovies());
   }, [dispatch]);
+
   return (
     <div className={styles.movieListWrapper}>
       <div className={styles.optionWrapper}>
-        {!loading && (
+        {
           <Select
             className={styles.multiSelect}
             isMulti
             options={categories}
             onChange={(e) => dispatch(filter(e))}
           />
-        )}
+        }
         <button
           onClick={() => dispatch(setInitialMovies())}
-          className={styles.remove}
+          className={styles.button}
         >
           Reset movies
         </button>
@@ -52,17 +56,9 @@ export default function MovieList() {
           <i onClick={() => changePage(-1)}>{"<<"}</i>
           <p>{page}</p>
           <i onClick={() => changePage(1)}>{">>"}</i>
-          <input
-            onKeyDown={(e) => e.preventDefault()}
-            onContextMenu={(e) => e.preventDefault()}
-            onClick={(e) => e.preventDefault()}
-            type="number"
-            defaultValue="12"
-            step="4"
-            min="4"
-            max="12"
-            onChange={(e) => updateMaxSize(e)}
-          />
+          <button className={styles.button} onClick={() => updateMaxSize(-4)}>-</button>
+          <p className={styles.maxSize} >{maxSize}</p>
+          <button className={styles.button} onClick={() => updateMaxSize(4)}>+</button>
         </div>
       </div>
       <div className={styles.movieWrapper}>

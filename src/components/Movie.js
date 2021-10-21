@@ -58,7 +58,7 @@ export default function Movie({ remove, movieInfos }) {
           }}
         ></div>
       </div>
-      <button className={styles.remove} onClick={remove}>
+      <button className={styles.button} onClick={remove}>
         delete
       </button>
     </div>

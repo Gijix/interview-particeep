@@ -40,17 +40,22 @@
   margin-left: 10px;
   margin-right: 10px;
   cursor: pointer;
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Old versions of Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
+  transition:200ms ;
+}
+.pagination > i:hover {
+  transition:200ms ;
+  color:#05427a ;
 }
 .pagination > p {
   position: relative;
   bottom: 5px;
+  width: 20px;
+}
+.pagination > button {
+  font-weight: bold;
+  font-size: 25px;
+  margin-left:10px;
+  margin-right: 10px;
 }
 .movie {
   display: flex;
@@ -80,7 +85,7 @@
   display: flex;
   flex-wrap: wrap;
 }
-.remove {
+.button {
   border-radius: 5px;
   background-color: rgb(5, 152, 197);
   color: white;
@@ -90,7 +95,7 @@
   font-weight: 600;
   transition: 200ms;
 }
-.remove:hover {
+.button:hover {
   background-color: #05427a;
   transition: 200ms;
   cursor: pointer;
